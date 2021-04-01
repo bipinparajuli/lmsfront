@@ -9,7 +9,7 @@ const App = lazy(()=> import("./App"))
 ReactDOM.render(
   <>
   <BrowserRouter>
-  <Suspense fallback={<h1>App loading</h1>}>
+  <Suspense fallback={<p className="lead">Please wait ...</p>}>
   <App />  
   </Suspense>
   </BrowserRouter>
