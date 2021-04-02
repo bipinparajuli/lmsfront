@@ -68,25 +68,25 @@ updateBook(user._id,match.params.bookid,token,{authorname,bookname,publication,s
         <div>
                <form class="row g-3">
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">{labelone}</label>
+    <label for="inputEmail4" class="form-label">Book Name</label>
     <input type="text" value={bookname} class="form-control" onChange={e=>setvalues({...values,bookname:e.target.value})}  />
   </div>
 
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">{labelfour}</label>
+    <label for="inputEmail4" class="form-label">Publication</label>
     <input type="text" class="form-control" value={publication} onChange={e=>setvalues({...values,publication:e.target.value})} />
   </div>
 
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">{labelseven}</label>
+    <label for="inputEmail4" class="form-label">Stocks</label>
     <input type="text" class="form-control" value={stocks} onChange={e=>setvalues({...values,stocks:e.target.value})} />
   </div>
   <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">{labelsix}</label>
+    <label for="inputPassword4" class="form-label">Author Name</label>
     <input type="text" class="form-control" value={authorname} onChange={e=>setvalues({...values,authorname:e.target.value})} />
   </div>
   <div class="col-md-4">
-    <label for="inputState" class="form-label">{labelthree}</label>
+    <label for="inputState" class="form-label">Department</label>
     <select id="inputState" class="form-select" onChange={e=>setvalues({...values,department:e.target.value})}>
       <option value="BCA">BCA</option>
       <option value="BBM">BBM</option>
