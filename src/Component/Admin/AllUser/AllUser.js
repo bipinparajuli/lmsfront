@@ -11,7 +11,7 @@ import Search from '../../UI/Search/Search'
 const {user,token} = isAuthenticate();
 
 function AllUser() {
-    const [value, setvalue] = useState([])
+    const [value, setvalue] = useState([{_id:"please wait...",name:"please wait...",address:"please wait...",phone:"please wait...",}])
     
     const deleteHandler = (sid) => {
 console.log(sid)

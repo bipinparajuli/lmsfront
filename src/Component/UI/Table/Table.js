@@ -1,11 +1,28 @@
 import React,{useState,useEffect,Suspense} from 'react'
-import { deleteBook, getAllBook } from '../../APIHelper/bookapi';
+import { deleteBook, getAllBook, searchBookByName } from '../../APIHelper/bookapi';
 import { isAuthenticate } from '../../auth';
 import {Link} from "react-router-dom"
 import { toast } from 'react-toastify';
+import {useStateValue} from '../../../Container/Serviceprovider'
 
 const Table = ({firsthead,secondhead,thirdhead,fourthead,data}) => {
-    const [book, setbook] = useState([]);
+    const [book, setbook] = useState([{_id:"please wait...",bookname:"please wait...",stocks:"please wait...",createdAt:"please wait...",}]);
+
+const [{search},dispatch] = useStateValue()
+
+console.log(search.value)
+
+const Searchdata = () => {
+
+    if(search.value !== undefined)
+    {
+        searchBookByName(search.value)
+        .then(data =>                 setbook(data)
+        )
+        .catch(e=> console.log(e))
+    }
+    
+} 
 
 
     const {user,token} = isAuthenticate();
@@ -27,10 +44,10 @@ const Table = ({firsthead,secondhead,thirdhead,fourthead,data}) => {
     
     const preload =()=> {
         getAllBook().then(data=>{
+            console.log(data)
             if(data)
             {
                 setbook(data)
-                console.log(data)
             }
             else console.log(data)
         })
@@ -40,12 +57,19 @@ const Table = ({firsthead,secondhead,thirdhead,fourthead,data}) => {
 preload()        
     }, [])
 
+    useEffect(() => {
+        Searchdata()        
+            }, [search])
+        
 
     return (
         <>
            
            
 {
+
+book == [] || undefined ? console.log("loading..") :
+
     book.map((d,i)=>{
         return (
             <>

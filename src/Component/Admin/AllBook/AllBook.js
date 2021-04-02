@@ -1,11 +1,18 @@
-import React,{Suspense,lazy} from 'react'
+import React,{Suspense,lazy,useState} from 'react'
+import { searchBookByName } from '../../APIHelper/bookapi'
 // import { getAllBook } from '../../APIHelper/bookapi'
 import Layout from '../../Layout/Layout'
 import Search from '../../UI/Search/Search'
+import {useStateValue} from '../../../Container/Serviceprovider'
+
 const Table = lazy(() => import('../../UI/Table/Table'))
 
-const AllBook = () => {
 
+
+
+const AllBook = () => {
+const [value, setvalue] = useState("")
+const [{},dispatch] = useStateValue();
     
 // const bookNotAvailable = () => {
 //     return(
@@ -14,12 +21,29 @@ const AllBook = () => {
 //             </div>
 //     )
 // }
+
+const submit = (e)=> {
+    console.log(value)
+    e.preventDefault();
+    dispatch({
+        type:'SEARCH',
+        item:{
+           value:value
+        }
+    })
+}
+
+
+
 const bookAvailable  = () => {
 return (
 <Suspense fallback={<h1>Book list ...</h1>}>
 <Layout>
     <div>
-    <Search placeholder="Search Books" />
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search book" onChange={e=>setvalue(e.target.value)} aria-label="Search" />
+      <button class="btn btn-outline-success" onClick={submit} type="submit">Search</button>
+    </form>
     <table class="table table-dark table-hover">
 <thead>
             <tr>
@@ -32,6 +56,8 @@ return (
                 </tr>
             </thead>
             <Suspense fallback={<h1>Loading profile...</h1>}>
+
+
 <Table   />
             </Suspense>
 </table>
