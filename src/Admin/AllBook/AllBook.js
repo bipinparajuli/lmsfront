@@ -1,5 +1,5 @@
 import React,{Suspense,lazy} from 'react'
-import { getAllBook } from '../../APIHelper/bookapi'
+// import { getAllBook } from '../../APIHelper/bookapi'
 import Layout from '../../Layout/Layout'
 import Search from '../../UI/Search/Search'
 const Table = lazy(() => import('../../UI/Table/Table'))
@@ -7,13 +7,13 @@ const Table = lazy(() => import('../../UI/Table/Table'))
 const AllBook = () => {
 
     
-const bookNotAvailable = () => {
-    return(
-        <div>
-<h3>No Book is present in Database</h3>
-            </div>
-    )
-}
+// const bookNotAvailable = () => {
+//     return(
+//         <div>
+// <h3>No Book is present in Database</h3>
+//             </div>
+//     )
+// }
 const bookAvailable  = () => {
 return (
 <Suspense fallback={<h1>Book list ...</h1>}>
