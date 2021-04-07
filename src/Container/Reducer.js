@@ -1,5 +1,6 @@
 export const initailState={
-search:[]
+search:[],
+searchStudent:[]
 }
 
 
@@ -10,6 +11,9 @@ switch(action.type){
     case 'SEARCH':
         //logic for adding
         return {...state,search:action.item}
+        case 'SEARCHSTUDENT':
+        //logic for adding
+        return {...state,searchStudent:action.item}
         
         
                 default:

@@ -59,7 +59,7 @@ return (
             {/* <Suspense fallback={<h1>Loading profile...</h1>}> */}
 
 
-<Table className="animate__animated  animate__fadeInTopLeft"  />
+<Table   />
             {/* </Suspense> */}
 </table>
 </div>

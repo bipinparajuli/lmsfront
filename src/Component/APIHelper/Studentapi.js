@@ -19,7 +19,7 @@ export const getStudentById =(studentid) => {
         })
       }
 
-      export const searcStudentByName = (name)=> {
+      export const searchStudentByName = (name)=> {
         return fetch(`https://mysterious-woodland-24801.herokuapp.com/api/search/student/${name}`,
         {
           method:"GET",
