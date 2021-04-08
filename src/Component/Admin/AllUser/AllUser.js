@@ -17,7 +17,7 @@ function AllUser() {
     const [{searchStudent},dispatch] = useStateValue();
     
     const deleteHandler = (sid) => {
-// console.log(sid)
+console.log(sid)
         deleteStudent(user._id,sid,token)
 .then(d=>
     { 
