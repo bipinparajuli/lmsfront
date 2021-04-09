@@ -25,6 +25,7 @@ preload()
 <Layout>
      <div>
   <h1 className="animate__animated animate__bounce"> Welcome to Dashboard Page</h1> 
+  <h2>I am added for testing</h2>
   <div 
    className="row"
    >
