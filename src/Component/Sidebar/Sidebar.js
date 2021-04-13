@@ -23,37 +23,37 @@ const Sidebar = ({data,one,two,three,four,five,six,seven,header}) => {
 
 <SidebarContent>
     <Menu>
-        <MenuItem>
-<Dashboard />
+        <MenuItem >
+<Dashboard style={{marginRight:"15px"}} />
         <NavLink exact to={data[0]}>{one}</NavLink>
         </MenuItem>
         <MenuItem>
-        <LibraryBooks />
+        <LibraryBooks style={{marginRight:"15px"}} />
         <NavLink exact to={data[1]}>{two}</NavLink>
         </MenuItem>
         <MenuItem>
-        <Group />
+        <Group style={{marginRight:"15px"}} />
         <NavLink exact to={data[2]}>{three}</NavLink>
         </MenuItem>
         <MenuItem>
         <NavLink exact to={data[3]}>{four}</NavLink>
         </MenuItem>
         <MenuItem>
-        <LibraryAdd />
+        <LibraryAdd style={{marginRight:"15px"}} />
         <NavLink exact to={data[4]}>{five}</NavLink>
         </MenuItem>
         <MenuItem>
-        <GroupAdd />
+        <GroupAdd style={{marginRight:"15px"}} />
         <NavLink to={data[5]} exact>{six}</NavLink>
         </MenuItem>
         <MenuItem>
-        <Power />
+        <Power style={{marginRight:"15px"}} />
         <NavLink exact to={data[6]} onClick={signout}>{seven}</NavLink>
         </MenuItem>
     </Menu>
 </SidebarContent>
 <SidebarFooter>
-<p className="lead">copyright @libaray management system</p>
+<p style={{fontSize:"18px"}} className="lead">copyright @libaray management system</p>
 </SidebarFooter>
 </ProSidebar>
     </div>
