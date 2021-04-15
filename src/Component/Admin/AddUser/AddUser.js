@@ -4,6 +4,10 @@ import { addStudent } from '../../APIHelper/auth'
 import { isAuthenticate } from '../../auth'
 import Layout from '../../Layout/Layout'
 import {toast} from 'react-toastify'
+import ClipLoader from "react-spinners/ClipLoader";
+
+
+
 const AddUser = () => {
 
   const {user,token} = isAuthenticate()
@@ -103,7 +107,8 @@ addStudent(user._id,token,{name,email,phone,roll_no,address,department})
   </div>
 
   <div className="col-12">
-{adding ? <button  className="btn btn-secondary"  >Adding User</button> : <button  class="btn btn-success" onClick={onsubmit} >Add User</button>}    
+{adding ? <button  className="btn btn-success"  ><ClipLoader color={"#8D3DAF"} loading={adding}  size={50} /> 
+</button> : <button  class="btn btn-success" onClick={onsubmit} >Add User</button>}    
   </div>
 </form>
         </div>

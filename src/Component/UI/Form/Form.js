@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import {addBook} from '../../APIHelper/bookapi'
 import { isAuthenticate } from '../../auth'
 import {toast} from 'react-toastify'
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Form = ({labelone,labeltwo,labelthree,labelfour,labelfive,labelsix,labelseven}) => {
 
@@ -96,7 +97,8 @@ setvalues({...values,[name]:value})
   </div>
 
   <div className="col-12">
-{adding? <button  className="btn btn-secondary" >Adding . . .</button> :<button  className="btn btn-success" onClick={onsubmit} >Add Book</button>}    
+{adding? <button  className="btn btn-success" ><ClipLoader color={"#8D3DAF"} loading={adding}  size={50} /> 
+</button> :<button  className="btn btn-success" onClick={onsubmit} >Add Book</button>}    
   </div>
 </form>
         </div>

@@ -4,7 +4,8 @@ searchStudent:[],
 layout:[],
 totalUser:[],
 totalOrder:[],
-totalBook:[]
+totalBook:[],
+department:[]
 }
 
 
@@ -34,6 +35,11 @@ switch(action.type){
             case 'TOTALORDER':
                 //logic for adding
                 return {...state,totalOrder:action.item}
+
+                case 'DEPARTMENT':
+                    //logic for adding
+                    return {...state,department:action.item}
+
                 default:
                 return state
 }
