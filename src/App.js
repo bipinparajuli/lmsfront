@@ -10,7 +10,7 @@ import Profile from "./Component/Student/Profile/Profile";
 import AllBooks from "./Component/Student/AllBooks";
 import Mybooks from "./Component/Student/Mybooks";
 import UpdateProfile from "./Component/Student/UpdateProfile/UpdateProfile";
-
+import Department from './Component/Admin/Department/AddDepartment'
 
 const Signin = React.lazy(()=> import( './Component/User/Signin')) ;
 const Dashboard = React.lazy(()=> import( './Component/Admin/Dashboard/Dashboard')) ;
@@ -47,6 +47,8 @@ function App() {
 
 
 <AdminRoute exact path="/issuebook" component={IssueRetuenRequest}  />
+
+<AdminRoute exact path="/department" component={Department}  />
 
 {/* <AdminRoute exact path="/issuebook" component={IssueRetuenRequest}  /> */}
 

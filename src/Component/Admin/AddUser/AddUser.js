@@ -67,6 +67,8 @@ addStudent(user._id,token,{name,email,phone,roll_no,address,department})
   return (
 <Layout>
 <div>
+<h2>Add User</h2>
+
             <form className="row g-3">
   <div className="col-md-6">
     <label  className="form-label">Student Name*</label>
