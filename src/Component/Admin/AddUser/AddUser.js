@@ -5,11 +5,13 @@ import { isAuthenticate } from '../../auth'
 import Layout from '../../Layout/Layout'
 import {toast} from 'react-toastify'
 import ClipLoader from "react-spinners/ClipLoader";
+import { useStateValue } from '../../../Container/Serviceprovider'
 
 
 
 const AddUser = () => {
 
+ const [{departments}] = useStateValue()
   const {user,token} = isAuthenticate()
 
 
@@ -99,10 +101,15 @@ addStudent(user._id,token,{name,email,phone,roll_no,address,department})
   <div className="col-md-4">
     <label  className="form-label">Department</label>
     <select id="inputState" className="form-select" onChange={e=>setvalues({...values,department:e.target.value})}>
-      <option value="BCA">BCA</option>
-      <option value="BBM">BBM</option>
-      <option value="BBS">BBS</option>
-      <option value="BSW">BSW</option>
+      {
+        departments.map((data,i)=>{
+          return (
+            <option key={i} value={data.name}>{data.name}</option>
+
+          )
+        })
+      }
+      
     </select>
   </div>
 

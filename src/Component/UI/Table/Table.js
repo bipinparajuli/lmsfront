@@ -4,6 +4,7 @@ import { isAuthenticate } from '../../auth';
 import {Link} from "react-router-dom"
 import { toast } from 'react-toastify';
 import {useStateValue} from '../../../Container/Serviceprovider'
+import ClipLoader from "react-spinners/ClipLoader";
 import './Table.css'
 
 const Table = () => {
@@ -31,14 +32,21 @@ const Searchdata = (e) => {
     const {user,token} = isAuthenticate();
 
     const deleteHandler = (book_id) => {
-
+dispatch({
+    type:"DELETING",
+    item:true
+})
         deleteBook(user._id,book_id,token)
         .then(
                d=>
             {
             
                 toast("Deleted",{type:"error"})
-  preload()          
+  preload()     
+  dispatch({
+    type:"DELETING",
+    item:false
+})     
             }
             
             )
@@ -48,7 +56,7 @@ const Searchdata = (e) => {
     const preload =()=> {
     setloading(true)
         getAllBook().then(data=>{
-            // console.log(data)
+            console.log(data)
             if(data)
             {
                 setbook(data)
@@ -73,7 +81,9 @@ preload()
            
 {
 
-book == [] || undefined ? console.log("loading..") :
+book.length == 0 || book == undefined ? (
+    <h1>You have no books In database</h1>
+) :
 
     book.map((d,i)=>{
         return (
@@ -81,11 +91,7 @@ book == [] || undefined ? console.log("loading..") :
            {/* <Suspense fallback={<h1>Loading profile...</h1>}> */}
 
             <tbody key={i}>
-            <tr 
-               data-aos={"flip-left"}
-               data-aos-easing={"ease-out-cubic"}
-               data-aos-duration={"2000"}
-            >
+            <tr>
                 <td>{d._id}</td>
                 <td>{d.bookname}</td>
           
@@ -93,19 +99,7 @@ book == [] || undefined ? console.log("loading..") :
                 <td>{d.createdAt}</td>
           
                 <td>
-                    {
-                    loading?
-                    (
-                        <>
-                    <button type="button" className="btn btn-danger mr-1 disabled" style={{marginRight:"10px"}} >
-                        Delete
-                    </button>
-                    <Link  className="btn btn-primary disabled" >Update</Link>
-                    </>
-                    )
-:
-(
-    <>
+                    
 <button type="button" className="btn btn-danger mr-1" style={{marginRight:"10px"}} onClick={()=>deleteHandler(d._id)}>
     Delete
 </button>
@@ -113,10 +107,7 @@ book == [] || undefined ? console.log("loading..") :
 <Link  className="btn btn-primary" to={`admin/book/updatebook/${d._id}`}>
     Update
 </Link>
-    </>
-)
 
-                    }
           </td>
             </tr>
             </tbody>

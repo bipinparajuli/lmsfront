@@ -5,7 +5,8 @@ layout:[],
 totalUser:[],
 totalOrder:[],
 totalBook:[],
-department:[]
+departments:[],
+deleting:false
 }
 
 
@@ -38,7 +39,11 @@ switch(action.type){
 
                 case 'DEPARTMENT':
                     //logic for adding
-                    return {...state,department:action.item}
+                    return {...state,departments:action.item}
+
+                    case 'DELETING':
+                        //logic for adding
+                        return {...state,deleting:action.item}
 
                 default:
                 return state
