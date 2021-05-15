@@ -7,13 +7,13 @@ import './Navbar.css'
 
 const Navbar = ({name}) => {
 const [{deleting}]=useStateValue()
-console.log(deleting)
+// console.log(deleting)
 const date = new Date();
     return (
         <div className="container-fluid nav_main" >
             <nav  className="navbar fixed-top navbar-light bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand">
+    <a href="#" className="navbar-brand">
     <div className="row">
     <div style={{marginRight:"1%"}} className="col-6">
 <FaBookOpen />
