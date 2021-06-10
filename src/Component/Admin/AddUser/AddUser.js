@@ -30,7 +30,7 @@ const AddUser = () => {
 
   const onsubmit = (e) =>{
 
-    // console.log(e)
+    console.log(values)
 
     e.preventDefault();
 
@@ -73,6 +73,8 @@ addStudent(user._id,token,{name,email,phone,roll_no,address,department})
   useEffect(()=>{
     getAllDepartment(user._id,token)
       .then(data=>{
+        console.log(data);
+        setvalues({...values,department:data[0].name})
          console.log(data)
           dispatch({
               type:"DEPARTMENT",

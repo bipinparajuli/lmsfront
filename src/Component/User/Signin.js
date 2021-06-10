@@ -6,7 +6,6 @@ import {FaUser} from 'react-icons/fa'
 import {Login} from '../APIHelper/auth'
 import {Redirect} from 'react-router-dom';
 import { Authenticate, isAuthenticate } from '../auth';
-// import { css } from "@emotion/core";
 import ClipLoader from "react-spinners/ClipLoader";
 
 
@@ -59,7 +58,7 @@ return  setvalue({...values,passworderror:"Password is required"})
      setvalue({...values,error:false,loader:true})
 
         Login({email,enc_password}).then((data)=>{
-console.log(data);
+// console.log(data);
     if(!data.success)
     {
         // console.log(data.error)

@@ -1,6 +1,6 @@
 //get all deprtment list
 export const getAllDepartment = (userId,token) => {
-console.log("ALLDEPARTMENT",userId,token)
+// console.log("ALLDEPARTMENT",userId,token)
     return fetch (`https://mysterious-woodland-24801.herokuapp.com/api/department/alldepartment/${userId}`,{
 method:"GET",
 

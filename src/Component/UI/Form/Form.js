@@ -17,8 +17,8 @@ const [{departments},dispatch]= useStateValue()
     publication:"",
     stocks:"",
     department:"",
-adding:false,
-error:""
+    adding:false,
+    error:""
   })
 // const [d,setd]=useState()
 
@@ -45,6 +45,7 @@ error:""
           {
             return toast(data.error,{type:"info"})
           }
+          setvalues({...values,department:data[0].name})
           dispatch({
                 type:"DEPARTMENT",
                 item:data
@@ -60,7 +61,7 @@ setvalues({...values,adding:true})
 addBook(user._id,token,{bookname,publication,stocks,authorname,department})
 .then(d=> 
   {
-// console.log(d)
+console.log(d)
       if(d.error)
       {
         setvalues({...values,error:d.error})
@@ -117,10 +118,11 @@ addBook(user._id,token,{bookname,publication,stocks,authorname,department})
     <label  className="form-label">{labelthree}</label>
     <select id="inputState"  className="form-select" onChange={e=>setvalues({...values,department:e.target.value})}>
      {
+       console.log(departments[0]),
 departments.map((data,i)=>{
-// console.log(departments)
+
   return(
-    <option   key={i} value={data.name}>{data.name}</option>
+    <option key={i} value={data.name}>{data.name}</option>
 
   )
 
