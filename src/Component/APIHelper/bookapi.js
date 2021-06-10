@@ -38,9 +38,9 @@ export const deleteBook = (userid,bookid,token) => {
 }
 
 //add book
-export const addBook = (id,token,data) => {
+export const addBook = async (id,token,data) => {
  console.log(JSON.stringify(data))
-  return fetch(`https://mysterious-woodland-24801.herokuapp.com/api/book/createbook/${id}`, {
+  return await fetch(`https://mysterious-woodland-24801.herokuapp.com/api/book/createbook/${id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

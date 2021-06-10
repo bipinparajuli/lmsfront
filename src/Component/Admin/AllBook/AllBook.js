@@ -61,11 +61,9 @@ return (
           
                 </tr>
             </thead>
-            {/* <Suspense fallback={<h1>Loading profile...</h1>}> */}
 
 
 <Table   />
-            {/* </Suspense> */}
 </table>
 </div>
 

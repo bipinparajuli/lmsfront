@@ -18,12 +18,13 @@ const Profile = () => {
 
 const preload = (id) => {
 
-    console.log(id)
+    // console.log(id)
 
     getStudentById(id)
     .then(data=>
         {
-            console.log(data)
+            data.enc_password =  ""
+            // console.log(data)
 
             dispatch({
     type:"STUDENT",
@@ -44,36 +45,36 @@ preload(user._id)
       <StudentHome>
       <div className="row">
       <div className="col-3">
-           <div class="text-center" style={{borderRadius:"50%"}}>
-  <img src={img} class="rounded" alt="logoes" style={{height:"200px",width:"200px"}} />
+           <div className="text-center" style={{borderRadius:"50%"}}>
+  <img src={img} className="rounded" alt="logoes" style={{height:"200px",width:"200px"}} />
 </div> 
 </div>
-{/* <div className="row">
-<div className="col-3">
-<Card title="Total Issued" totalbook="3" />
-</div>
-<div className="col-3">
-<Card title="To be Returned" totalbook="3" />
-</div>
-<div className="col-3">
-<Card title="Total Book Available" totalbook="3" />
-</div>
-</div> */}
+
 <div className="col-9">
-    <span className="lead">Full Name</span>
-    <input  type="text" value={state.name} /><br/>
-    <span className="lead">Email</span>
-    <input type="text" value={state.email} /><br/>
-    <span className="lead">Address</span>
-    <input type="text" value={state.address} /><br/>
-    <span className="lead">Department</span>
-    <input type="text" value={state.department} /><br/>
-    <span className="lead">Roll no</span>
-    <input type="text" value={state.roll_no} /><br/>
-    {/* <input type="text" /><br/> */}
-    <span className="lead">Contact no.</span>
-    <input type="text" value={state.phone} /><br/>
-    {/* <input type="text" /><br/> */}
+    <span className="lead">Full Name : </span>
+    {/* <input  type="text" value={state.name} /><br/> */}
+<p>{state.name}</p>
+
+    <span className="lead">Email :</span>
+    {/* <input type="text" value={state.email} /><br/> */}
+    <p>{state.email}</p>
+
+    <span className="lead">Address :</span>
+    {/* <input type="text" value={state.address} /><br/> */}
+    <p>{state.address}</p>
+    
+    <span className="lead">Department :</span>
+    {/* <input type="text" value={state.department} /><br/> */}
+    <p>{state.department}</p>
+    
+    <span className="lead">Roll no :</span>
+    {/* <input type="text" value={state.roll_no} /><br/> */}
+    <p>{state.roll_no}</p>
+
+    <span className="lead">Contact no. :</span>
+    {/* <input type="text" value={state.phone} /><br/> */}
+    <p>{state.phone}</p>
+
 </div>
 
 

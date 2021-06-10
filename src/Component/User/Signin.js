@@ -58,8 +58,8 @@ return  setvalue({...values,passworderror:"Password is required"})
      setvalue({...values,error:false,loader:true})
 
         Login({email,enc_password}).then((data)=>{
-// console.log(data);
-    if(!data.success)
+console.log(data);
+    if(!data.success || data.error)
     {
         // console.log(data.error)
  setvalue({...values,error:data.messege,loading:false})

@@ -72,10 +72,10 @@ preload()
     <label  className="form-label">Roll No.</label>
     <input type="text" className="form-control" value={roll_no} onChange={e=>setstate({...state,roll_no:e.target.value})} />
   </div>
-  <div className="col-md-6">
+  {/* <div className="col-md-6">
     <label  className="form-label">Password</label>
     <input type="password" className="form-control" value={enc_password} onChange={e=>setstate({...state,enc_password:e.target.value})} />
-  </div>
+  </div> */}
 
   <div className="col-md-6">
     <label  className="form-label">Phone</label>

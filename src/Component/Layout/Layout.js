@@ -9,10 +9,12 @@ const data =['/dashboard',"/allbook","/alluser","/issuebook","/addbook","/adduse
 <Navbar name="Admin" />
             <div style={{paddingTop:"10%"}} className="row">
 <div style={{position:"fixed"}} className="col-2">
+   
        <Sidebar 
 data={data}
 one="Dashboard" two="All Books" three="All users" four="Issue/Return Request" five="Add Book" six="Add user" seven="Department" eight="Logout" />
        </div>
+       
        <div style={{marginLeft:"auto"}} className="col-10">
             {children}
         </div>
